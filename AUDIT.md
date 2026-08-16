@@ -10,7 +10,7 @@ Disposable Privacy Workspace V1, Android application boundary, disposable storag
 - Android Keystore-backed session encryption keys.
 - Session directory deletion on destruction.
 - Orphaned-session cleanup on startup.
-- Tor Android 0.4.9.11 integration.
+- Tor Android 0.4.9.6.2 integration.
 - Tor operational-state check before activation.
 - Tor SOCKS routing for the disposable WebView through AndroidX WebKit ProxyController.
 - No direct proxy fallback in the browser.

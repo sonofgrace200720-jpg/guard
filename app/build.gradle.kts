@@ -33,7 +33,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.8.5")
     implementation("androidx.webkit:webkit:1.14.0")
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
-    implementation("info.guardianproject:tor-android:0.4.9.9.1")
+    implementation("info.guardianproject:tor-android:0.4.9.6.2")
     implementation("info.guardianproject:jtorctl:0.4.5.7")
     implementation(platform("androidx.compose:compose-bom:2024.12.01"))
     debugImplementation("androidx.compose.ui:ui-tooling")

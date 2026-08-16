@@ -8,14 +8,14 @@ The production V1 deliberately defines **supported private traffic** as the appl
 
 ### Tor mode
 
-- Uses Guardian Project `tor-android` 0.4.9.11 and `jtorctl` 0.4.5.7.
+- Uses Guardian Project `tor-android` 0.4.9.6.2 and `jtorctl` 0.4.5.7.
 - Waits for Tor to report an operational circuit and a non-zero SOCKS listener.
 - Uses AndroidX WebKit `ProxyController` with a SOCKS5 proxy rule pointing at Tor's local SOCKS listener.
 - Does not add a direct-network fallback.
 - Removes the TorService private data directory when the disposable session is destroyed.
 - Supports normal HTTPS browsing and `.onion` access through the Tor SOCKS proxy where the WebView/Tor combination supports it.
 
-Guardian Project documents the native Android Tor service and the current 0.4.9.11 binary. citeturn20search0turn20search1
+Guardian Project documents the native Android Tor service and the current 0.4.9.6.2 binary. citeturn20search0turn20search1
 
 ### Cloudflare mode
 
