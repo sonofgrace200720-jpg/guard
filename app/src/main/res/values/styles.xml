@@ -1,0 +1,3 @@
+<resources>
+<style name="Theme.DisposablePrivacyWorkspace" parent="android:style/Theme.Material.NoActionBar" />
+</resources>
