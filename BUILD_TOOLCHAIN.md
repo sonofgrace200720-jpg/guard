@@ -1,7 +1,11 @@
-# Android build toolchain
+# Build toolchain
 
-The app uses `tor-android:0.4.9.11`, which requires compileSdk 37. On the current Android SDK repository used by GitHub-hosted runners, the API 37 platform may be published as `platforms;android-37.0` rather than the integer `platforms;android-37` package identifier.
+- Java: Temurin 17
+- Gradle: 9.4.1 in GitHub Actions
+- Android compile SDK: API 35
+- Android target SDK: API 35
+- Android build tools: 35.0.0
 
-CI installs `platforms;android-37.0` and `build-tools;37.0.0`. It then creates a local `android-37` symlink to the installed `android-37.0` platform directory so Gradle/AGP can resolve `compileSdk = 37`.
+CI installs the exact Android SDK platform and build-tools packages required by the project. It does not reference the unavailable `platforms;android-37` or `platforms;android-37.0` package identifiers.
 
-This avoids suppressing AAR metadata validation and keeps the real Guardian Project Tor Android 0.4.9.11 engine.
+The app's `compileSdk` is intentionally aligned with the target SDK and CI package set to keep the build reproducible on GitHub-hosted runners.

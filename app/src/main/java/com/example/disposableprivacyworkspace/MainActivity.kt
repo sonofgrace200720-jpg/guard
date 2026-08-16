@@ -17,7 +17,6 @@ import com.example.disposableprivacyworkspace.browser.PrivacyBrowser
 import com.example.disposableprivacyworkspace.network.LocalDohProxy
 import com.example.disposableprivacyworkspace.sandbox.*
 import com.example.disposableprivacyworkspace.tor.TorManager
-import com.example.disposableprivacyworkspace.vpn.PrivacyVpnService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executors

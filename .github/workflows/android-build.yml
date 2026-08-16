@@ -18,15 +18,14 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.4.1'
-      - run: yes | sdkmanager --licenses >/dev/null || true
-      - run: sdkmanager --channel=1 'platforms;android-37.0' 'build-tools;37.0.0'
-      - run: |
-          if [ -d "$ANDROID_SDK_ROOT/platforms/android-37.0" ] && [ ! -e "$ANDROID_SDK_ROOT/platforms/android-37" ]; then
-            ln -s android-37.0 "$ANDROID_SDK_ROOT/platforms/android-37"
-          fi
-          test -d "$ANDROID_SDK_ROOT/platforms/android-37"
-      - run: gradle test lint assembleDebug --stacktrace
-      - run: test -s app/build/outputs/apk/debug/app-debug.apk
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'platform-tools'
+      - name: Build and test
+        run: gradle test lint assembleDebug --stacktrace
+      - name: Verify debug APK
+        run: test -s app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
           name: disposable-privacy-workspace-debug-apk

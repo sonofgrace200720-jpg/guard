@@ -5,7 +5,7 @@ on:
 permissions:
   contents: read
 jobs:
-  unit-and-instrumentation:
+  unit-and-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,12 +17,8 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.4.1'
-      - run: sdkmanager --channel=1 'platforms;android-37.0' 'system-images;android-37.0;google_apis;x86_64' 'emulator' 'platform-tools' 'build-tools;37.0.0'
-      - run: |
-          if [ -d "$ANDROID_SDK_ROOT/platforms/android-37.0" ] && [ ! -e "$ANDROID_SDK_ROOT/platforms/android-37" ]; then
-            ln -s android-37.0 "$ANDROID_SDK_ROOT/platforms/android-37"
-          fi
-          test -d "$ANDROID_SDK_ROOT/platforms/android-37"
-      - run: yes | sdkmanager --licenses >/dev/null || true
-      - run: echo "no KVM-dependent emulator is forced in the source workflow; instrumentation runs on device-enabled runners"
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'platform-tools'
       - run: gradle test lint --stacktrace

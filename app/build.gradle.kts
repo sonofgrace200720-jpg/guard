@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.disposableprivacyworkspace"
-    compileSdk = 37
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.example.disposableprivacyworkspace"
         minSdk = 26
