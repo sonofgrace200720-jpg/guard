@@ -18,7 +18,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.4.1'
-      - run: sdkmanager 'platforms;android-37' 'build-tools;36.0.0'
+      - run: sdkmanager --channel=1 'platforms;android-37' 'build-tools;36.0.0'
       - run: yes | sdkmanager --licenses >/dev/null || true
       - run: gradle lint test --stacktrace
       - name: Secret scan
