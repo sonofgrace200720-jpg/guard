@@ -20,5 +20,5 @@ jobs:
       - name: Install Android SDK packages
         run: |
           yes | sdkmanager --licenses >/dev/null || true
-          sdkmanager 'platforms;android-37' 'build-tools;37.0.0' 'platform-tools'
+          sdkmanager 'platforms;android-35' 'build-tools;37.0.0' 'platform-tools'
       - run: gradle test lint --stacktrace
