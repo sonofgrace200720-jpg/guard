@@ -16,8 +16,8 @@ jobs:
       - uses: android-actions/setup-android@v3
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.10.2'
-      - run: sdkmanager 'platforms;android-35' 'system-images;android-35;google_apis;x86_64' 'emulator' 'platform-tools' 'build-tools;35.0.0'
+          gradle-version: '9.4.1'
+      - run: sdkmanager 'platforms;android-37' 'system-images;android-37;google_apis;x86_64' 'emulator' 'platform-tools' 'build-tools;36.0.0'
       - run: yes | sdkmanager --licenses >/dev/null || true
       - run: echo "no KVM-dependent emulator is forced in the source workflow; instrumentation runs on device-enabled runners"
       - run: gradle test lint --stacktrace
